@@ -1,0 +1,79 @@
+---
+// Hero with a slow crossfading photo stack + a single confident headline.
+// Placeholder photography from Unsplash until Angana sends the real assets.
+const slides = [
+  {
+    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2000&q=70",
+    alt: "Children walking together in soft afternoon light",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=2000&q=70",
+    alt: "Hands offering food at a community kitchen",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2000&q=70",
+    alt: "A young student smiling at her desk",
+  },
+];
+---
+
+<section class="relative isolate h-[92vh] min-h-[640px] w-full overflow-hidden bg-ink-900 text-white">
+  <div class="absolute inset-0">
+    {slides.map((s, i) => (
+      <img
+        src={s.src}
+        alt={s.alt}
+        data-slide={i}
+        class:list={[
+          "fade-slide ken-burns absolute inset-0 h-full w-full object-cover",
+          i === 0 ? "is-active" : "",
+        ]}
+        loading={i === 0 ? "eager" : "lazy"}
+        fetchpriority={i === 0 ? "high" : "auto"}
+      />
+    ))}
+    <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/75"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-20 lg:px-10 lg:pb-28">
+    <p class="reveal mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
+      <span class="h-px w-8 bg-brand-300"></span>
+      Maheshwari Foundation
+    </p>
+    <h1 class="reveal display max-w-4xl text-5xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
+      Quiet work.<br />Lasting change.
+    </h1>
+    <p class="reveal mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+      For over a decade, we've supported children, families and communities
+      across five countries — in classrooms, hospitals, labour camps and
+      crisis zones. Without fanfare. Just the work.
+    </p>
+    <div class="reveal mt-10 flex flex-wrap gap-4">
+      <a
+        href="#impact"
+        class="rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/30 transition hover:bg-brand-600"
+      >
+        See our impact
+      </a>
+      <a
+        href="#contact"
+        class="rounded-full border border-white/30 bg-white/5 px-7 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/15"
+      >
+        Get in touch
+      </a>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      const slides = document.querySelectorAll("[data-slide]");
+      if (slides.length < 2) return;
+      let i = 0;
+      setInterval(() => {
+        slides[i].classList.remove("is-active");
+        i = (i + 1) % slides.length;
+        slides[i].classList.add("is-active");
+      }, 6000);
+    })();
+  </script>
+</section>

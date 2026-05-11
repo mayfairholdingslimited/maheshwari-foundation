@@ -1,0 +1,24 @@
+---
+import { site } from "../data/site";
+---
+
+<section class="bg-brand-500 py-20 text-white lg:py-24">
+  <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-10 px-6 lg:flex-row lg:items-center lg:px-10">
+    <div class="reveal max-w-2xl">
+      <h2 class="display text-4xl leading-tight sm:text-5xl">
+        Want to help, partner, or just learn more?
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-white/90">
+        We're a small team. Every email is read by a real person, usually
+        within a day.
+      </p>
+    </div>
+    <a
+      href={`mailto:${site.email}`}
+      class="reveal inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/20 transition hover:bg-brand-50"
+    >
+      {site.email}
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>

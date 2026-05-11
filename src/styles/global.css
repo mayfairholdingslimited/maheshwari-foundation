@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand — pulled from the Maheshwari Foundation logo */
+  --color-brand-50:  #fef3ef;
+  --color-brand-100: #fde0d4;
+  --color-brand-200: #fbbfa6;
+  --color-brand-300: #f59673;
+  --color-brand-400: #ee6d45;
+  --color-brand-500: #e94e26;
+  --color-brand-600: #d33d18;
+  --color-brand-700: #af2f13;
+  --color-brand-800: #832513;
+  --color-brand-900: #5d1b10;
+
+  /* Neutrals — warm grey to match the wordmark */
+  --color-ink-50:  #f7f6f5;
+  --color-ink-100: #ecebe9;
+  --color-ink-200: #d6d4d1;
+  --color-ink-300: #b3b0ac;
+  --color-ink-400: #8a8783;
+  --color-ink-500: #6b6864;
+  --color-ink-600: #4f4d4a;
+  --color-ink-700: #3a3835;
+  --color-ink-800: #262523;
+  --color-ink-900: #161513;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "ss01", "cv11";
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink-800);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+/* Fade-in-on-scroll utility (progressive enhancement, no JS dependency for first paint) */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Slow Ken-Burns drift for hero imagery */
+@keyframes ken-burns {
+  0%   { transform: scale(1.0)  translate3d(0, 0, 0); }
+  100% { transform: scale(1.08) translate3d(-1%, -1%, 0); }
+}
+.ken-burns {
+  animation: ken-burns 20s ease-out forwards;
+}
+
+/* Crossfade for hero slideshow */
+.fade-slide {
+  opacity: 0;
+  transition: opacity 1200ms ease;
+}
+.fade-slide.is-active {
+  opacity: 1;
+}

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.astro/
+.vercel/
+.env
+.env.production
+.DS_Store
+*.log
+
+# Source materials from client — kept local only, not for public/shared repos
+MF - 2024 & 2025 - Impact  - AS.docx
+approved-highres.png
+docx_extracted/

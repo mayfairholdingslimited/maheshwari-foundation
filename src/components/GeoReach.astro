@@ -1,0 +1,30 @@
+---
+import { locations } from "../data/site";
+---
+
+<section id="reach" class="relative bg-ink-900 py-24 text-white lg:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="reveal mb-14 max-w-2xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">
+        Where we work
+      </p>
+      <h2 class="display mt-4 text-4xl leading-tight text-white sm:text-5xl">
+        Five countries. One belief: care has no borders.
+      </h2>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink-300">
+        From the labour camps of Dubai to the hill villages of Bwindi, our work
+        follows the people we trust, not the maps we know.
+      </p>
+    </div>
+
+    <ol class="grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-ink-700 sm:grid-cols-2 lg:grid-cols-5">
+      {locations.map((l, i) => (
+        <li class="reveal bg-ink-900 p-8 transition hover:bg-ink-800">
+          <p class="text-xs font-mono text-brand-300">0{i + 1}</p>
+          <h3 class="display mt-3 text-2xl text-white">{l.country}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink-300">{l.places}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

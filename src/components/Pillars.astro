@@ -1,0 +1,64 @@
+---
+import { pillars } from "../data/site";
+
+// Placeholder imagery — one per pillar.
+const pillarImages: Record<string, string> = {
+  health:
+    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=70",
+  education:
+    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=70",
+  relief:
+    "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1200&q=70",
+  partnerships:
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=70",
+};
+---
+
+<section class="bg-white py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="reveal mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
+          What we do
+        </p>
+        <h2 class="display mt-4 text-4xl leading-tight text-ink-900 sm:text-5xl">
+          Four areas. One philosophy: stay close, stay long.
+        </h2>
+      </div>
+      <p class="max-w-md text-base leading-relaxed text-ink-600">
+        Most of our programmes are multi-year commitments. We believe sustained
+        presence does more good than one-off gestures.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      {pillars.map((p) => (
+        <article class="reveal group relative overflow-hidden rounded-2xl bg-ink-50 shadow-sm transition hover:shadow-xl">
+          <div class="relative h-64 w-full overflow-hidden">
+            <img
+              src={pillarImages[p.id]}
+              alt=""
+              loading="lazy"
+              class="h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+            <h3 class="absolute bottom-5 left-6 right-6 display text-2xl text-white sm:text-3xl">
+              {p.title}
+            </h3>
+          </div>
+          <div class="p-8">
+            <p class="text-base leading-relaxed text-ink-700">{p.blurb}</p>
+            <ul class="mt-6 space-y-2 text-sm text-ink-600">
+              {p.highlights.map((h) => (
+                <li class="flex gap-3">
+                  <span class="mt-2 h-1 w-1 flex-none rounded-full bg-brand-500"></span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
