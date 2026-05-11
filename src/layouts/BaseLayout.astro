@@ -7,11 +7,14 @@ import { site } from "../data/site";
 interface Props {
   title?: string;
   description?: string;
+  /** Set to true on pages whose first section is a dark hero. */
+  overHero?: boolean;
 }
 
 const {
   title = `${site.name} — ${site.tagline}`,
-  description = "Maheshwari Foundation is a UK-registered charity supporting health, education, and community relief across India, the UAE, the Philippines, Uganda and beyond.",
+  description = "Maheshwari Foundation is a UK-registered charity supporting health, education, and community relief across India, the UAE, the Philippines, Uganda, Thailand and beyond.",
+  overHero = false,
 } = Astro.props;
 ---
 
@@ -34,13 +37,12 @@ const {
     <meta property="og:type" content="website" />
   </head>
   <body>
-    <Header />
+    <Header overHero={overHero} />
     <main>
       <slot />
     </main>
     <Footer />
     <script is:inline>
-      // Reveal-on-scroll: progressive enhancement only.
       const io = new IntersectionObserver(
         (entries) => {
           for (const e of entries) {

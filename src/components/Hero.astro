@@ -1,18 +1,21 @@
 ---
-// Hero with a slow crossfading photo stack + a single confident headline.
-// Placeholder photography from Unsplash until Angana sends the real assets.
+import { foundation } from "../data/foundation";
+
+// Real photography ported from the live site's hero rotation +
+// the Howrah Blood Bank project tile. Will swap to Angana's high-res
+// originals when she sends them.
 const slides = [
   {
-    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2000&q=70",
-    alt: "Children walking together in soft afternoon light",
+    src: "https://static.wixstatic.com/media/083907_d98d9edd3eb044018bd8b191393a1106~mv2.png/v1/fill/w_2000,h_1200,al_c,q_85/file.png",
+    alt: "Maheshwari Foundation work in the field",
   },
   {
-    src: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=2000&q=70",
-    alt: "Hands offering food at a community kitchen",
+    src: "https://static.wixstatic.com/media/083907_7e3bf795da624bf4b2c0d900f2b8151c~mv2.jpg/v1/fill/w_2000,h_1200,al_c,q_85/file.jpg",
+    alt: "Howrah Blood Bank inauguration",
   },
   {
-    src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2000&q=70",
-    alt: "A young student smiling at her desk",
+    src: "https://static.wixstatic.com/media/083907_4016c3d4095e486a85775db8720160df~mv2.jpg/v1/fill/w_2000,h_1200,al_c,q_85/file.jpg",
+    alt: "Cricket kit distribution at Bal Ashram",
   },
 ];
 ---
@@ -32,7 +35,7 @@ const slides = [
         fetchpriority={i === 0 ? "high" : "auto"}
       />
     ))}
-    <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/75"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/80"></div>
   </div>
 
   <div class="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-20 lg:px-10 lg:pb-28">
@@ -41,25 +44,30 @@ const slides = [
       Maheshwari Foundation
     </p>
     <h1 class="reveal display max-w-4xl text-5xl leading-[1.05] text-white sm:text-6xl lg:text-7xl">
-      Quiet work.<br />Lasting change.
+      {foundation.motto.split(".").map((part, i) => (
+        <Fragment>
+          <span>{part.trim()}{part.trim() && "."}</span>
+          {i === 0 && <br />}
+        </Fragment>
+      ))}
     </h1>
     <p class="reveal mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-      For over a decade, we've supported children, families and communities
-      across five countries — in classrooms, hospitals, labour camps and
-      crisis zones. Without fanfare. Just the work.
+      Since 2010 we have worked across India, the UAE, the Philippines, Uganda
+      and Thailand — addressing illiteracy, hunger and deprivation through
+      programmes that empower the people who need them most.
     </p>
     <div class="reveal mt-10 flex flex-wrap gap-4">
       <a
-        href="#impact"
+        href="/our-work"
         class="rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/30 transition hover:bg-brand-600"
       >
-        See our impact
+        See our work
       </a>
       <a
-        href="#contact"
+        href="/about"
         class="rounded-full border border-white/30 bg-white/5 px-7 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/15"
       >
-        Get in touch
+        About the Foundation
       </a>
     </div>
   </div>

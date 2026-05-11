@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { annualReports, banking, financeNote } from "../data/finance";
+import { site } from "../data/site";
+---
+
+<BaseLayout title="Finance — Maheshwari Foundation">
+  <PageHero
+    eyebrow="Transparency"
+    title="Our finances, openly published."
+    subtitle="Audited annual accounts for Maheshwari Foundation UK, year by year."
+  />
+
+  <section class="bg-white py-16 lg:py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+      <p class="reveal max-w-3xl text-base leading-relaxed text-ink-700">{financeNote}</p>
+
+      <h2 class="reveal display mt-14 text-2xl text-ink-900 sm:text-3xl">
+        Annual Reports
+      </h2>
+      <ul class="reveal mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {annualReports.map((r) => (
+          <li>
+            <a
+              href={r.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-between rounded-xl border border-ink-200 bg-white px-5 py-4 transition hover:border-brand-300 hover:bg-brand-50"
+            >
+              <span class="font-medium text-ink-900">Annual Report {r.year}</span>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">
+                PDF →
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-ink-50 py-16 lg:py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+      <h2 class="reveal display text-2xl text-ink-900 sm:text-3xl">
+        Charity & banking information
+      </h2>
+      <dl class="reveal mt-8 grid gap-8 md:grid-cols-2">
+        <div class="rounded-2xl bg-white p-6">
+          <dt class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
+            Charity Registered Number
+          </dt>
+          <dd class="mt-2 text-lg font-medium text-ink-900">{site.charityNumber}</dd>
+        </div>
+        <div class="rounded-2xl bg-white p-6">
+          <dt class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
+            Contact
+          </dt>
+          <dd class="mt-2 text-lg font-medium text-ink-900">
+            <a href={`mailto:${site.email}`} class="underline-offset-4 hover:underline">
+              {site.email}
+            </a>
+          </dd>
+        </div>
+        <div class="rounded-2xl bg-white p-6">
+          <dt class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
+            UK Banker
+          </dt>
+          <dd class="mt-2 text-base leading-relaxed text-ink-800">{banking.ukBanker}</dd>
+        </div>
+        <div class="rounded-2xl bg-white p-6">
+          <dt class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
+            India Banker
+          </dt>
+          <dd class="mt-2 text-base leading-relaxed text-ink-800">{banking.indiaBanker}</dd>
+        </div>
+        <div class="rounded-2xl bg-white p-6 md:col-span-2">
+          <dt class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
+            Accountant
+          </dt>
+          <dd class="mt-2 text-base leading-relaxed text-ink-800">{banking.accountant}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+</BaseLayout>

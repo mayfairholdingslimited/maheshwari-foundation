@@ -1,17 +1,29 @@
 ---
-import { site } from "../data/site";
+import { site, nav } from "../data/site";
 
-const nav = [
-  { href: "#mission", label: "Our work" },
-  { href: "#impact", label: "Impact" },
-  { href: "#reach", label: "Where we work" },
-  { href: "#contact", label: "Contact" },
-];
+interface Props {
+  /** When true, header sits over a dark hero. When false, it sits on a light page. */
+  overHero?: boolean;
+}
+
+const { overHero = false } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const linkBase = overHero ? "text-white/90 hover:text-white" : "text-ink-700 hover:text-ink-900";
+const ctaClass = overHero
+  ? "bg-white text-brand-700 hover:bg-brand-50"
+  : "bg-brand-500 text-white hover:bg-brand-600";
+const wordmarkClass = overHero ? "text-white" : "text-ink-900";
 ---
 
-<header class="absolute inset-x-0 top-0 z-30">
+<header
+  class:list={[
+    "absolute inset-x-0 top-0 z-30",
+    overHero ? "" : "relative bg-white border-b border-ink-100",
+  ]}
+>
   <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-    <a href="/" class="flex items-center gap-3 text-white">
+    <a href="/" class:list={["flex items-center gap-3", wordmarkClass]}>
       <img
         src="/logo.png"
         alt={`${site.name} logo`}
@@ -19,18 +31,32 @@ const nav = [
         height="44"
         class="h-11 w-11 rounded-md bg-white/95 p-1 shadow-sm"
       />
-      <span class="display text-lg font-semibold tracking-tight">
-        {site.name}
-      </span>
+      <span class="display text-lg font-semibold tracking-tight">{site.name}</span>
     </a>
-    <nav class="hidden gap-8 text-sm font-medium text-white/90 md:flex">
-      {nav.map((n) => (
-        <a href={n.href} class="transition hover:text-white">{n.label}</a>
-      ))}
+    <nav class:list={["hidden gap-7 text-sm font-medium md:flex", linkBase]}>
+      {nav.map((n) => {
+        const norm = n.href.replace(/\/$/, "") || "/";
+        const isActive = path === norm;
+        return (
+          <a
+            href={n.href}
+            class:list={[
+              "transition",
+              isActive ? (overHero ? "text-white" : "text-brand-700") : "",
+            ]}
+            aria-current={isActive ? "page" : undefined}
+          >
+            {n.label}
+          </a>
+        );
+      })}
     </nav>
     <a
-      href="#contact"
-      class="hidden rounded-full bg-white px-5 py-2 text-sm font-semibold text-brand-700 shadow-sm transition hover:bg-brand-50 md:inline-block"
+      href={`mailto:${site.email}`}
+      class:list={[
+        "hidden rounded-full px-5 py-2 text-sm font-semibold shadow-sm transition md:inline-block",
+        ctaClass,
+      ]}
     >
       Get involved
     </a>

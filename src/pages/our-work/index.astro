@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import { projectsByPillar, type Pillar } from "../../data/projects";
+import { pillarMeta } from "../../data/site";
+
+const order: Pillar[] = ["health", "education", "relief", "partnerships"];
+---
+
+<BaseLayout title="Our Work — Maheshwari Foundation">
+  <PageHero
+    eyebrow="Programmes since 2001"
+    title="The work, project by project."
+    subtitle="Twenty-three programmes across five countries — some completed, many ongoing. Grouped here by the four areas we focus on."
+  />
+
+  <nav class="sticky top-0 z-20 border-b border-ink-100 bg-white/80 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl gap-6 overflow-x-auto px-6 py-4 text-sm font-medium text-ink-600 lg:px-10">
+      {order.map((id) => (
+        <a href={`#${id}`} class="whitespace-nowrap transition hover:text-brand-700">
+          {pillarMeta[id].title}
+          <span class="ml-1 text-xs text-ink-400">({projectsByPillar[id].length})</span>
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  {order.map((id) => {
+    const meta = pillarMeta[id];
+    const items = projectsByPillar[id];
+    return (
+      <section id={id} class="scroll-mt-20 border-t border-ink-100 bg-white py-20 lg:py-24">
+        <div class="mx-auto max-w-7xl px-6 lg:px-10">
+          <div class="reveal mb-12 max-w-3xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
+              {items.length} {items.length === 1 ? "programme" : "programmes"}
+            </p>
+            <h2 class="display mt-3 text-3xl leading-tight text-ink-900 sm:text-4xl">
+              {meta.title}
+            </h2>
+            <p class="mt-4 text-base leading-relaxed text-ink-600">{meta.blurb}</p>
+          </div>
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {items.map((p) => (
+              <a
+                href={`/our-work/${p.slug}`}
+                class="reveal group block overflow-hidden rounded-2xl bg-ink-50 shadow-sm transition hover:shadow-xl"
+              >
+                <div class="relative h-48 w-full overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt=""
+                    loading="lazy"
+                    class="h-full w-full object-cover transition duration-[1000ms] ease-out group-hover:scale-105"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="display text-xl leading-snug text-ink-900">{p.title}</h3>
+                  {p.location && (
+                    <p class="mt-2 text-xs uppercase tracking-wider text-ink-500">
+                      {p.location}
+                    </p>
+                  )}
+                  <p class="mt-4 line-clamp-3 text-sm leading-relaxed text-ink-600">
+                    {p.description}
+                  </p>
+                  <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-700">
+                    Read more <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+</BaseLayout>

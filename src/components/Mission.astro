@@ -1,5 +1,7 @@
 ---
+import { foundation } from "../data/foundation";
 ---
+
 <section id="mission" class="bg-white py-24 lg:py-32">
   <div class="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-12 lg:px-10">
     <div class="reveal lg:col-span-5">
@@ -9,20 +11,36 @@
       <h2 class="display mt-4 text-4xl leading-tight text-ink-900 sm:text-5xl">
         A small charity with reach far beyond its size.
       </h2>
+      <div class="mt-8 flex flex-wrap gap-3">
+        {foundation.focusAreas.map((f) => (
+          <span class="rounded-full bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700">
+            {f}
+          </span>
+        ))}
+      </div>
     </div>
     <div class="reveal space-y-6 text-lg leading-relaxed text-ink-700 lg:col-span-7">
       <p>
-        Maheshwari Foundation is a UK-registered charity (No. 1145228) that
-        works across India, the UAE, the Philippines, Uganda and Thailand.
-        We don't run campaigns. We don't chase headlines. We find the
-        people and partners doing the hardest work, and we back them — for years
-        at a time.
+        Maheshwari Foundation was established in India in <strong>March 2010</strong>
+        and registered as a UK charity in <strong>2011</strong> (Charity No. {""}
+        <span class="whitespace-nowrap">1145228</span>). We work to address
+        illiteracy, hunger and deprivation through initiatives that empower
+        disadvantaged populations.
       </p>
       <p>
-        Our programmes sit in four areas: health and wellbeing, education and
-        opportunity, community relief, and global partnerships. Below is
-        a snapshot of the work — and the people behind it.
+        Our principle is simple: <em>{foundation.principle.toLowerCase().replace(/\.$/, '')}.</em>
       </p>
+      <p>
+        We have committed a minimum of <strong>INR 10 crore</strong> toward our
+        objectives, and have delivered programmes across five countries since
+        our first response — the 2001 Bhuj earthquake — through to today.
+      </p>
+      <a
+        href="/about"
+        class="inline-flex items-center gap-2 text-base font-semibold text-brand-700 transition hover:text-brand-800"
+      >
+        Read more about the Foundation <span aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>

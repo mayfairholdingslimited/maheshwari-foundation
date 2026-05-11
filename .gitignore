@@ -11,3 +11,7 @@ dist/
 MF - 2024 & 2025 - Impact  - AS.docx
 approved-highres.png
 docx_extracted/
+.vercel
+.env*.local
+
+.crawl/
