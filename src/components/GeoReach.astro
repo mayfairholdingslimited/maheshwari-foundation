@@ -19,10 +19,10 @@ import { locations } from "../data/site";
 
     <ol class="grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-ink-700 sm:grid-cols-2 lg:grid-cols-5">
       {locations.map((l, i) => (
-        <li class="reveal bg-ink-900 p-8 transition hover:bg-ink-800">
-          <p class="text-xs font-mono text-brand-300">0{i + 1}</p>
+        <li class="reveal group bg-ink-900 p-8 transition duration-300 hover:bg-brand-600">
+          <p class="text-xs font-mono text-brand-300 transition group-hover:text-white/80">0{i + 1}</p>
           <h3 class="display mt-3 text-2xl text-white">{l.country}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-300">{l.places}</p>
+          <p class="mt-2 text-sm leading-relaxed text-ink-300 transition group-hover:text-white/90">{l.places}</p>
         </li>
       ))}
     </ol>

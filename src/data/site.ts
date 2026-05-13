@@ -14,7 +14,7 @@ export const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/trustees", label: "Trustees" },
-  { href: "/our-work", label: "Our work" },
+  { href: "/our-work", label: "Our Work" },
   { href: "/finance", label: "Finance" },
   { href: "/gratitude", label: "Gratitude" },
   { href: "/partners", label: "Partners" },
@@ -31,7 +31,7 @@ export const pillarMeta = {
   health: {
     title: "Health & Wellbeing",
     blurb:
-      "Care for the most vulnerable — from blood supply and thalassemia treatment to oxygen, dignity and disability inclusion.",
+      "Care for the vulnerable — from blood supply and thalassemia treatment to oxygen provision and inclusion of the differently abled.",
     image:
       "https://static.wixstatic.com/media/083907_7e3bf795da624bf4b2c0d900f2b8151c~mv2.jpg",
   },
@@ -59,8 +59,8 @@ export const pillarMeta = {
 } as const;
 
 export const locations = [
-  { country: "India", places: "Kolkata, Howrah, Delhi, Pondicherry, Bhuj, Rajasthan" },
-  { country: "United Arab Emirates", places: "Dubai labour camps, Sharjah" },
+  { country: "India", places: "New Delhi, Kolkata, Howrah, Bhuj, Pondicherry" },
+  { country: "United Arab Emirates", places: "Labour camps across Dubai & Sharjah" },
   { country: "Philippines", places: "Nueva Ecija, Batangas" },
   { country: "Uganda", places: "Bwindi" },
   { country: "Thailand", places: "Chon Buri, Bangkok" },

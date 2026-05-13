@@ -74,7 +74,11 @@ const related = projectsByPillar[project.pillar]
           )}
         </aside>
         <div class="reveal space-y-6 text-lg leading-relaxed text-ink-700 lg:col-span-8">
-          <p>{project.description}</p>
+          {project.body && project.body.length > 0 ? (
+            project.body.map((para) => <p>{para}</p>)
+          ) : (
+            <p>{project.description}</p>
+          )}
           <a
             href="/our-work"
             class="inline-flex items-center gap-2 pt-4 text-sm font-semibold text-brand-700 transition hover:text-brand-800"

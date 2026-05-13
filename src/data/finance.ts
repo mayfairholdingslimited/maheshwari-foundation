@@ -28,4 +28,4 @@ export const banking = {
 } as const;
 
 export const financeNote =
-  "The audited accounts for Maheshwari Foundation, UK are linked below. The audit of accounts for Maheshwari Foundation India will be undertaken shortly.";
+  "The audited accounts for Maheshwari Foundation, UK are linked below.";
