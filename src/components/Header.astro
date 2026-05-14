@@ -14,25 +14,27 @@ const ctaClass = overHero
   ? "bg-white text-brand-700 hover:bg-brand-50"
   : "bg-brand-500 text-white hover:bg-brand-600";
 const wordmarkClass = overHero ? "text-white" : "text-ink-900";
+const burgerColor = overHero ? "text-white" : "text-ink-900";
 ---
 
 <header
   class:list={[
-    "absolute inset-x-0 top-0 z-30",
-    overHero ? "" : "relative bg-white border-b border-ink-100",
+    "inset-x-0 top-0 z-30",
+    overHero ? "absolute" : "sticky bg-white border-b border-ink-100",
   ]}
 >
   <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-    <a href="/" class:list={["flex items-center gap-4", wordmarkClass]}>
+    <a href="/" class:list={["flex items-center gap-3 sm:gap-4", wordmarkClass]}>
       <img
         src="/logo.png"
         alt={`${site.name} logo`}
         width="80"
         height="80"
-        class="h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20"
+        class="h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20"
       />
-      <span class="display text-xl font-semibold tracking-tight sm:text-2xl">{site.name}</span>
+      <span class="display text-base font-semibold tracking-tight sm:text-2xl">{site.name}</span>
     </a>
+
     <nav class:list={["hidden gap-7 text-sm font-medium md:flex", linkBase]}>
       {nav.map((n) => {
         const norm = n.href.replace(/\/$/, "") || "/";
@@ -51,6 +53,7 @@ const wordmarkClass = overHero ? "text-white" : "text-ink-900";
         );
       })}
     </nav>
+
     <a
       href={`mailto:${site.email}`}
       class:list={[
@@ -60,5 +63,111 @@ const wordmarkClass = overHero ? "text-white" : "text-ink-900";
     >
       Get involved
     </a>
+
+    <button
+      id="mobile-nav-toggle"
+      type="button"
+      aria-controls="mobile-nav"
+      aria-expanded="false"
+      aria-label="Open menu"
+      class:list={[
+        "inline-flex h-11 w-11 items-center justify-center rounded-md transition md:hidden",
+        burgerColor,
+        overHero ? "hover:bg-white/10" : "hover:bg-ink-100",
+      ]}
+    >
+      <svg data-icon="open" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="4" y1="7" x2="20" y2="7"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="17" x2="20" y2="17"></line>
+      </svg>
+      <svg data-icon="close" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div
+    id="mobile-nav"
+    hidden
+    class="md:hidden border-t border-ink-100 bg-white shadow-lg"
+  >
+    <nav class="mx-auto flex max-w-7xl flex-col px-6 py-2 text-base font-medium text-ink-800">
+      {nav.map((n) => {
+        const norm = n.href.replace(/\/$/, "") || "/";
+        const isActive = path === norm;
+        return (
+          <a
+            href={n.href}
+            class:list={[
+              "border-b border-ink-100 py-4 transition last:border-b-0",
+              isActive ? "text-brand-700" : "hover:text-brand-700",
+            ]}
+            aria-current={isActive ? "page" : undefined}
+          >
+            {n.label}
+          </a>
+        );
+      })}
+      <a
+        href={`mailto:${site.email}`}
+        class="mt-4 mb-2 rounded-full bg-brand-500 px-5 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-brand-600"
+      >
+        Get involved
+      </a>
+    </nav>
   </div>
 </header>
+
+<script is:inline>
+  (function () {
+    const btn = document.getElementById("mobile-nav-toggle");
+    const panel = document.getElementById("mobile-nav");
+    if (!btn || !panel) return;
+
+    const iconOpen = btn.querySelector('[data-icon="open"]');
+    const iconClose = btn.querySelector('[data-icon="close"]');
+
+    function setOpen(open) {
+      btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      if (open) {
+        panel.removeAttribute("hidden");
+        iconOpen.classList.add("hidden");
+        iconClose.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      } else {
+        panel.setAttribute("hidden", "");
+        iconOpen.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      setOpen(!isOpen);
+    });
+
+    // Close panel when any link inside is tapped.
+    panel.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => setOpen(false))
+    );
+
+    // Esc to close.
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+      }
+    });
+
+    // If the viewport grows beyond mobile while the panel is open, close it.
+    const mq = window.matchMedia("(min-width: 768px)");
+    mq.addEventListener("change", (e) => {
+      if (e.matches && btn.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+      }
+    });
+  })();
+</script>
