@@ -9,6 +9,8 @@ export interface Trustee {
   bio: string;
   photo: string;
   inMemoriam?: boolean;
+  /** LinkedIn profile URL — when set, the trustee's name + photo link out. */
+  linkedin?: string;
 }
 
 export const trustees: Trustee[] = [
@@ -18,12 +20,14 @@ export const trustees: Trustee[] = [
     role: "Trustee",
     bio: "Founder of Synergy, his own investments and advisory venture established in April 2015, with operations across the UAE, UK, Singapore and India.",
     photo: "/trustees/sudhir.jpg",
+    linkedin: "https://www.linkedin.com/in/sudhir-maheshwari/",
   },
   {
     name: "Sangeeta Maheshwari",
     role: "Trustee",
     bio: "A global citizen, author and Economics graduate, Sangeeta Maheshwari has keen interests in holistic living and alternative therapies. She is the founder of #LifeASpiritualGym.",
     photo: "/trustees/sangeeta.jpg",
+    linkedin: "https://www.linkedin.com/in/sangeeta-maheshwari/",
   },
   // Row 2
   {
@@ -40,6 +44,7 @@ export const trustees: Trustee[] = [
     bio: "Vishwanath is the India Trustee and an administrator for the Stepping Stones school in New Delhi, India.",
     photo:
       "https://static.wixstatic.com/media/083907_6669609f044a418aa5c606c67f602499~mv2.png",
+    linkedin: "https://www.linkedin.com/in/vishwanath-prasad-b8b26a31a/",
   },
   // Row 3
   {
@@ -47,11 +52,13 @@ export const trustees: Trustee[] = [
     role: "Trustee",
     bio: "Angana has had the fortune of a global life. Having lived in five countries — now her sixth — she has had the opportunity to serve her community in many different ways.",
     photo: "/trustees/angana.jpg",
+    linkedin: "https://www.linkedin.com/in/anganamaheshwari/",
   },
   {
     name: "Ayush Maheshwari",
     role: "Trustee",
     bio: "Ayush has had the fortune of living in five countries and travelling to over fifty. With that global exposure he has served various communities along the way.",
     photo: "/trustees/ayush.jpg",
+    linkedin: "https://www.linkedin.com/in/ayush-maheshwari-660519138/",
   },
 ];

@@ -1,0 +1,161 @@
+---
+export const prerender = false;
+
+import "../../styles/global.css";
+import { COUNTER_FIELDS } from "../../data/counters";
+import { getCounter, storageConfigured } from "../../lib/counterStore";
+import {
+  COOKIE_NAME,
+  checkPassword,
+  makeCookieValue,
+  verifyCookie,
+  authConfigured,
+} from "../../lib/adminAuth";
+
+const { cookies, request, url, redirect } = Astro;
+const secure = url.protocol === "https:";
+let loginError = false;
+
+if (request.method === "POST") {
+  const form = await request.formData();
+  const action = form.get("action");
+  if (action === "login") {
+    if (checkPassword(String(form.get("password") ?? ""))) {
+      cookies.set(COOKIE_NAME, makeCookieValue(), {
+        httpOnly: true,
+        secure,
+        sameSite: "lax",
+        path: "/",
+        maxAge: 60 * 60 * 8, // 8 hours
+      });
+      return redirect("/admin", 303);
+    }
+    loginError = true;
+  } else if (action === "logout") {
+    cookies.delete(COOKIE_NAME, { path: "/" });
+    return redirect("/admin", 303);
+  }
+}
+
+const authed = verifyCookie(cookies.get(COOKIE_NAME)?.value);
+const counter = authed ? await getCounter() : null;
+const saved = url.searchParams.get("saved") === "1";
+const storageError = url.searchParams.get("error") === "storage";
+const configReady = authConfigured();
+const storeReady = storageConfigured();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin — Maheshwari Foundation</title>
+  </head>
+  <body class="min-h-screen bg-ink-50 text-ink-900">
+    <main class="mx-auto max-w-xl px-6 py-16">
+      <a href="/" class="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        ← Back to site
+      </a>
+      <h1 class="display mt-6 text-3xl text-ink-900">Blood counter admin</h1>
+
+      {!configReady && (
+        <p class="mt-6 rounded-xl bg-amber-50 p-4 text-sm text-amber-800">
+          <strong>Setup needed:</strong> set an <code>ADMIN_PASSWORD</code> environment
+          variable in Vercel to enable login.
+        </p>
+      )}
+
+      {configReady && !authed && (
+        <form method="POST" action="/admin" class="mt-8 space-y-4">
+          <input type="hidden" name="action" value="login" />
+          <label class="block text-sm font-medium text-ink-700">
+            Password
+            <input
+              type="password"
+              name="password"
+              required
+              autocomplete="current-password"
+              class="mt-2 w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-base outline-none focus:border-brand-500"
+            />
+          </label>
+          {loginError && (
+            <p class="text-sm text-red-600">Incorrect password. Try again.</p>
+          )}
+          <button
+            type="submit"
+            class="rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white transition hover:bg-brand-600"
+          >
+            Log in
+          </button>
+        </form>
+      )}
+
+      {authed && counter && (
+        <div class="mt-8">
+          {saved && (
+            <p class="mb-4 rounded-xl bg-green-50 p-4 text-sm text-green-700">
+              Saved. The live counter now shows these values.
+            </p>
+          )}
+          {storageError && (
+            <p class="mb-4 rounded-xl bg-red-50 p-4 text-sm text-red-700">
+              Could not save — storage isn't connected. Check the KV env vars.
+            </p>
+          )}
+          {!storeReady && (
+            <p class="mb-4 rounded-xl bg-amber-50 p-4 text-sm text-amber-800">
+              <strong>Storage not connected:</strong> create a Vercel KV store and
+              add its env vars. Until then, saves won't persist.
+            </p>
+          )}
+
+          <form method="POST" action="/api/counter" class="space-y-5">
+            <label class="block text-sm font-medium text-ink-700">
+              As on date
+              <input
+                type="text"
+                name="asOn"
+                value={counter.asOn}
+                placeholder="10 May 2026"
+                class="mt-2 w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-base outline-none focus:border-brand-500"
+              />
+            </label>
+
+            {COUNTER_FIELDS.map((f) => (
+              <label class="block text-sm font-medium text-ink-700">
+                {f.label}
+                <input
+                  type="number"
+                  name={f.key}
+                  min="0"
+                  step="1"
+                  value={String(counter[f.key])}
+                  class="mt-2 w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-base outline-none focus:border-brand-500"
+                />
+              </label>
+            ))}
+
+            <button
+              type="submit"
+              class="rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white transition hover:bg-brand-600"
+            >
+              Save counter
+            </button>
+          </form>
+
+          <form method="POST" action="/admin" class="mt-10">
+            <input type="hidden" name="action" value="logout" />
+            <button
+              type="submit"
+              class="text-sm font-medium text-ink-500 underline hover:text-ink-700"
+            >
+              Log out
+            </button>
+          </form>
+        </div>
+      )}
+    </main>
+  </body>
+</html>

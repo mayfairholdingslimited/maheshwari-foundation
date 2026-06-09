@@ -33,7 +33,7 @@ export const projects: Project[] = [
     location: "Howrah, West Bengal, India",
     partners: ["Lions Club of Howrah"],
     description:
-      "The Howrah Blood Bank was formally gifted to the Lions Club of Howrah in June 2023. A new Thalassemia Unit launched on World Thalassemia Day in May 2024, and a Blood Collection and Transportation Vehicle is planned in the coming months. As Sudhir Maheshwari has shared, this project fulfilled his late father's philanthropic vision.",
+      "The Howrah Blood Bank was formally gifted to the Lions Club of Howrah in June 2023. A new Thalassemia Unit launched on World Thalassemia Day in May 2024, providing regular blood transfusions for thalassemia patients, and a Blood Collection and Transportation Vehicle is planned in the coming months. As Sudhir Maheshwari has shared, this project fulfilled his late father's philanthropic vision.",
     body: [
       "Today, September 25th, 2023 would have been my father, Mr. D.K. Maheshwari's, 82nd birthday. On this occasion, my family and I spent the past weekend in Kolkata for a very important occasion. Before my father passed away, all too suddenly at my Dubai home in 2020, he had envisioned setting up a Blood Bank in Howrah. He had requested me and my family to consider sponsoring the entire project. This blood centre was built in 2019 but couldn't be commissioned as Covid caused many unplanned delays. Finally, the Centre was inaugurated in June this year. Maheshwari Foundation formally gifted this to the Lions Club of Howrah in Jaduberia yesterday. We also gifted and inaugurated a Thalassemia Unit, which should be able to serve society at large, especially those young children who need this life support regularly. Last but not least, we announced that we will gift a state-of-the-art, customised Blood Collection and Transportation Vehicle (BCTV). The BCTV will enhance the outreach programme to collect blood from donors in far and wide places. The BCTV is expected to be operational in 2-3 months.",
       "My father was a phenomenal philanthropist. He moved from Rajasthan to Kolkata after completing his Masters. He slowly and steadily built his professional career eventually reaching the position of CEO in a couple of jute and industrial chemical companies. Alongside his endeavour to make a decent living so that he could provide a good education to his three children, me being the eldest, he always gave the rest of his time to social causes, one of which was the Lions Club of Howrah. This Club has a history of 62 years and my father was an active member for almost 50 of those years. He was a disciplined and organised person — motivating and leading from the front was his forte. Of those fifty-odd years, for twenty years he was the Chairman of the two charitable hospitals that this club runs in Howrah.",
@@ -476,4 +476,45 @@ export const projectsByPillar: Record<Pillar, Project[]> = {
 
 export function projectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
+}
+
+// ── Country tagging ─────────────────────────────────────────────────────────
+// Country names match the GeoReach entries in site.ts exactly, so clicking a
+// country on the homepage opens that country's programmes (Sangeeta: "click on
+// countries and it should show the country work"). Keyed by project slug.
+const projectCountries: Record<string, string[]> = {
+  "howrah-blood-bank-2023": ["India"],
+  "howrah-blood-bank": ["India"],
+  "oxygen-concentrators-donation": ["India"],
+  "manzil-centre-of-disabilities": ["United Arab Emirates"],
+  "bhuj-earthquake": ["India"],
+  "the-dkm-scholarship": ["India"],
+  "maheshwari-school-for-all": ["India"],
+  "kailash-satyarthi-foundation": ["India"],
+  "cricket-kit-and-practice-net-for-bal-ash-1": ["India"],
+  "educational-sponsorship": ["India", "United Arab Emirates"],
+  "st-xaviers-kolkata": ["India"],
+  "future-hope": ["India"],
+  "stepping-stone-day-care-centre": ["India"],
+  "copy-of-cricket-kit-and-practice-net": ["United Arab Emirates"],
+  "copy-of-maheshwari-foundation-oxyge": ["India", "United Arab Emirates"],
+  "covid-19-donations": ["India"],
+  "taal-volcano-eruption": ["Philippines"],
+  "crpf-soldiers": ["India"],
+  "pondicherry-tsunami": ["India"],
+  "father-redemptorist-foundation": ["Thailand"],
+  "nausarmatatemple": ["India"],
+  "vatsalya-bhavan": ["India"],
+  // grass-roots-business-foundation spans Africa/Asia/Latin America — no single
+  // GeoReach country, so it is intentionally left untagged.
+};
+
+export function countriesForProject(slug: string): string[] {
+  return projectCountries[slug] ?? [];
+}
+
+export function projectsByCountry(country: string): Project[] {
+  return projects
+    .filter((p) => countriesForProject(p.slug).includes(country))
+    .sort((a, b) => a.order - b.order);
 }

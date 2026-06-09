@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import { locations } from "../../data/site";
+import { projectsByCountry } from "../../data/projects";
+
+export function getStaticPaths() {
+  return locations.map((l) => ({
+    params: { country: l.country.toLowerCase().replace(/\s+/g, "-") },
+    props: { country: l.country, places: l.places },
+  }));
+}
+
+interface Props {
+  country: string;
+  places: string;
+}
+const { country, places } = Astro.props;
+const items = projectsByCountry(country);
+---
+
+<BaseLayout title={`${country} — Maheshwari Foundation`}>
+  <PageHero
+    eyebrow="Where we work"
+    title={`Our work in ${country}.`}
+    subtitle={places}
+  />
+
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+      <a
+        href="/#reach"
+        class="reveal mb-12 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 transition hover:text-brand-800"
+      >
+        <span aria-hidden="true">←</span> All countries
+      </a>
+
+      {items.length > 0 ? (
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((p) => (
+            <a
+              href={`/our-work/${p.slug}`}
+              class="reveal group block overflow-hidden rounded-2xl bg-ink-50 shadow-sm transition hover:shadow-xl"
+            >
+              <div class="relative h-48 w-full overflow-hidden">
+                <img
+                  src={p.image}
+                  alt=""
+                  loading="lazy"
+                  class="h-full w-full object-cover transition duration-[1000ms] ease-out group-hover:scale-105"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="display text-xl leading-snug text-ink-900">{p.title}</h3>
+                {p.location && (
+                  <p class="mt-2 text-xs uppercase tracking-wider text-ink-500">
+                    {p.location}
+                  </p>
+                )}
+                <p class="mt-4 line-clamp-3 text-sm leading-relaxed text-ink-600">
+                  {p.description}
+                </p>
+                <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-700">
+                  Read more <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="reveal rounded-2xl bg-ink-50 p-12 text-center">
+          <p class="text-lg text-ink-700">
+            More from our work in {country} is coming to the site soon.
+          </p>
+          <a
+            href="/our-work"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 transition hover:text-brand-800"
+          >
+            See all programmes <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

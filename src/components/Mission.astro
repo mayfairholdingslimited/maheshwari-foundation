@@ -1,5 +1,14 @@
 ---
 import { foundation } from "../data/foundation";
+
+// Each focus area links through to its matching programmes section
+// (Sangeeta: Health/Hunger/Literacy must be clickable —
+// Literacy → education, Hunger → relief, Health → health).
+const focusLinks: Record<string, string> = {
+  Health: "/our-work#health",
+  Hunger: "/our-work#relief",
+  Literacy: "/our-work#education",
+};
 ---
 
 <section id="mission" class="bg-white py-24 lg:py-32">
@@ -13,9 +22,12 @@ import { foundation } from "../data/foundation";
       </h2>
       <div class="mt-8 flex flex-wrap gap-3">
         {foundation.focusAreas.map((f) => (
-          <span class="rounded-full bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700">
+          <a
+            href={focusLinks[f] ?? "/our-work"}
+            class="rounded-full bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700 transition hover:bg-brand-100 hover:text-brand-800"
+          >
             {f}
-          </span>
+          </a>
         ))}
       </div>
     </div>
@@ -31,7 +43,8 @@ import { foundation } from "../data/foundation";
         Our principle is simple: <em>{foundation.principle.toLowerCase().replace(/\.$/, '')}.</em>
       </p>
       <p>
-        We have committed a minimum of <strong>INR 10 crore</strong> toward our
+        We have committed a minimum of <strong>INR 10 crore</strong>
+        <span class="whitespace-nowrap">(approximately US$1.2 million)</span> toward our
         objectives, and have delivered programmes across five countries since
         our first response — the 2001 Bhuj earthquake — through to today.
       </p>

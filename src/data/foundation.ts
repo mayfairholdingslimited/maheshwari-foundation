@@ -5,9 +5,10 @@
 export const foundation = {
   establishedIndia: "March 2010",
   registeredUK: "2011",
-  motto: "Giving is Living. Living is Giving.",
+  motto: "Living is Giving. Giving is Living.",
   focusAreas: ["Health", "Hunger", "Literacy"] as const,
-  commitment: "A minimum of INR 10 crore committed toward our objectives.",
+  commitment:
+    "A minimum of INR 10 crore (approximately US$1.2 million) committed toward our objectives.",
   vision:
     "Equipping people with the tools to discover the inner strength and confidence to find their place in society.",
   principle:
