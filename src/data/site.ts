@@ -22,9 +22,9 @@ export const nav = [
 
 export const impactStats = [
   { value: "500+", label: "children educated at Maheshwari School For All since 2008" },
-  { value: "4,300+", label: "people fed across Dubai labour camps" },
+  { value: "6,000+", label: "people fed across various labour camps" },
   { value: "23", label: "programmes delivered since 2001" },
-  { value: "5", label: "continents reached" },
+  { value: "6", label: "continents reached" },
 ] as const;
 
 export const pillarMeta = {
@@ -64,4 +64,5 @@ export const locations = [
   { country: "Philippines", places: "Nueva Ecija, Batangas" },
   { country: "Uganda", places: "Bwindi" },
   { country: "Thailand", places: "Chon Buri, Bangkok" },
+  { country: "United Kingdom", places: "London" },
 ] as const;
