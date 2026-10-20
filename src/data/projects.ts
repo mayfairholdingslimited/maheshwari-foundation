@@ -618,8 +618,7 @@ const projectCountries: Record<string, string[]> = {
   "philippines-education-scholar": ["Philippines"],
   "udayan-setu-2026": ["India"],
   "lions-club-partnership": ["India"],
-  // grass-roots-business-foundation spans Africa/Asia/Latin America — no single
-  // GeoReach country, so it is intentionally left untagged.
+  "grass-roots-business-foundation": ["United Kingdom"],
 };
 
 export function countriesForProject(slug: string): string[] {
