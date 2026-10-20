@@ -75,7 +75,15 @@ const related = projectsByPillar[project.pillar]
         </aside>
         <div class="reveal space-y-6 text-lg leading-relaxed text-ink-700 lg:col-span-8">
           {project.body && project.body.length > 0 ? (
-            project.body.map((para) => <p>{para}</p>)
+            project.body.map((para) =>
+              para.startsWith("Update — ") ? (
+                <h3 class="border-t border-ink-200 pt-8 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
+                  {para}
+                </h3>
+              ) : (
+                <p>{para}</p>
+              )
+            )
           ) : (
             <p>{project.description}</p>
           )}
