@@ -1,4 +1,4 @@
-// All 23 projects ported from /our-work on the live site.
+// All projects on /our-work — 23 ported from the original Wix site, 5 added October 2026.
 // Each project has a stable slug used for /our-work/[slug] routes.
 // Pillar assignments are editorial — used to group projects on the homepage
 // and on the /our-work index. Tweak as Angana refines.
@@ -29,11 +29,11 @@ export const projects: Project[] = [
     slug: "howrah-blood-bank-2023",
     title: "Howrah Blood Bank — 2023 Update",
     pillar: "health",
-    date: "Inaugurated June 2023; Thalassemia Unit launched 27 May 2024",
+    date: "Inaugurated June 2023; Thalassemia Unit launched 27 May 2024; blood donation drives ongoing since 2023",
     location: "Howrah, West Bengal, India",
     partners: ["Lions Club of Howrah"],
     description:
-      "The Howrah Blood Bank was formally gifted to the Lions Club of Howrah in June 2023. A new Thalassemia Unit launched on World Thalassemia Day in May 2024, providing regular blood transfusions for thalassemia patients, and a Blood Collection and Transportation Vehicle is planned in the coming months. As Sudhir Maheshwari has shared, this project fulfilled his late father's philanthropic vision.",
+      "The Howrah Blood Bank was formally gifted to the Lions Club of Howrah in June 2023, together with a Blood Collection and Transportation Vehicle. A Thalassemia Unit launched on World Thalassemia Day in May 2024 and continues to provide regular blood transfusions, and blood donation camps and drives have run continuously since 2023. As Sudhir Maheshwari has shared, this project fulfilled his late father's philanthropic vision.",
     body: [
       "Today, September 25th, 2023 would have been my father, Mr. D.K. Maheshwari's, 82nd birthday. On this occasion, my family and I spent the past weekend in Kolkata for a very important occasion. Before my father passed away, all too suddenly at my Dubai home in 2020, he had envisioned setting up a Blood Bank in Howrah. He had requested me and my family to consider sponsoring the entire project. This blood centre was built in 2019 but couldn't be commissioned as Covid caused many unplanned delays. Finally, the Centre was inaugurated in June this year. Maheshwari Foundation formally gifted this to the Lions Club of Howrah in Jaduberia yesterday. We also gifted and inaugurated a Thalassemia Unit, which should be able to serve society at large, especially those young children who need this life support regularly. Last but not least, we announced that we will gift a state-of-the-art, customised Blood Collection and Transportation Vehicle (BCTV). The BCTV will enhance the outreach programme to collect blood from donors in far and wide places. The BCTV is expected to be operational in 2-3 months.",
       "My father was a phenomenal philanthropist. He moved from Rajasthan to Kolkata after completing his Masters. He slowly and steadily built his professional career eventually reaching the position of CEO in a couple of jute and industrial chemical companies. Alongside his endeavour to make a decent living so that he could provide a good education to his three children, me being the eldest, he always gave the rest of his time to social causes, one of which was the Lions Club of Howrah. This Club has a history of 62 years and my father was an active member for almost 50 of those years. He was a disciplined and organised person — motivating and leading from the front was his forte. Of those fifty-odd years, for twenty years he was the Chairman of the two charitable hospitals that this club runs in Howrah.",
@@ -44,6 +44,8 @@ export const projects: Project[] = [
       "World Thalassemia Day, established in 1994 by the Thalassemia International Federation (TIF), honors the memory of Panos Englezos's son, who succumbed to the disease. It serves as a poignant reminder of the global impact of thalassemia. Thalassemia encompasses a spectrum of inherited blood disorders characterized by diminished production of healthy red blood cells. Individuals with thalassemia lack adequate hemoglobin, the essential protein responsible for oxygen transportation in the body.",
       "Maheshwari Foundation and Synergy Capital are committed to raising awareness about thalassemia and providing support to affected children and their families, aiming to alleviate their challenges.",
       "Monday 27th May, 2024",
+      "Update — October 2026",
+      "The blood programme continues. Blood donation camps and drives have been held regularly since 2023, and the Thalassemia Unit continues to provide regular blood transfusions to patients who depend on them.",
     ],
     image:
       "https://static.wixstatic.com/media/083907_7e3bf795da624bf4b2c0d900f2b8151c~mv2.jpg",
@@ -53,15 +55,17 @@ export const projects: Project[] = [
     slug: "howrah-blood-bank",
     title: "Howrah Blood Bank and Thalassemia Clinic",
     pillar: "health",
-    date: "Commissioned October 2018",
+    date: "Commissioned October 2018; inaugurated June 2023",
     location: "Jadurberia Hospital, Howrah, West Bengal, India",
     partners: ["Howrah Lions Club"],
     description:
-      "Addressing the long-standing need for a well-functioning private blood bank in Howrah — a densely urbanised city of five million on the western bank of the Hooghly River, across from Kolkata. Total project cost: under INR 1 crore (~US$150,000).",
+      "Addressing the long-standing need for a well-functioning private blood bank in Howrah — a densely urbanised city of five million on the western bank of the Hooghly River, across from Kolkata. Total project cost: under INR 1 crore (~US$150,000). Delayed by Covid, the Blood Bank was inaugurated in June 2023.",
     body: [
       "In October 2018, Howrah Lions Club in West Bengal, India and Maheshwari Foundation identified a need to commission a Blood Bank in Howrah. Howrah is located across from Kolkata, on the western bank of the Hooghly River. Howrah is one of the most densely urbanized cities (population of 5 million people) of India and lacks a well-functioning private blood bank.",
       "The Blood Bank and Thalassemia Clinic is being commissioned at the Jadurberia Hospital of Howrah Lions' Club and is expected to be completed by the middle of 2019 at a cost of under ₹1 Crore (~$150,000).",
       "The Foundation is grateful to the Howrah Lions' Club for giving such an opportunity to commission a high-impact project in and around Howrah.",
+      "Update — October 2026",
+      "Construction was completed in 2019, but Covid caused many unplanned delays to commissioning. The Blood Bank was inaugurated in June 2023 and formally gifted to the Lions Club of Howrah, followed by a Thalassemia Unit in May 2024.",
     ],
     image:
       "https://static.wixstatic.com/media/083907_2bf921ff06da41f88fb5ba6fb4770a71~mv2.jpg",
@@ -126,14 +130,32 @@ export const projects: Project[] = [
     order: 14,
   },
 
+  {
+    slug: "filtered-water-coolers-2025",
+    title: "Filtered Drinking Water — 2025",
+    pillar: "health",
+    date: "2025",
+    beneficiaries: "3 filtered water coolers installed",
+    description:
+      "In 2025 the foundation installed three filtered water coolers — at a Don Bosco school and at a Swami Narayan Temple — giving students and visitors reliable access to clean, safe drinking water.",
+    body: [
+      "Clean drinking water is one of the simplest and most lasting ways to protect health, especially for children.",
+      "In 2025, Maheshwari Foundation installed three filtered water coolers: at a Don Bosco school and at a Swami Narayan Temple. The coolers give students, devotees and visitors reliable access to clean, safe drinking water every day.",
+      "This builds on our earlier support for drinking water in schools, including an electric water cooler sponsored for a school in Howrah in 2022.",
+    ],
+    image:
+      "https://static.wixstatic.com/media/083907_9923ecb9fd364dbc9c17393bddac3a1b~mv2.jpg",
+    order: 15,
+  },
+
   // ── Education & Opportunity ─────────────────────────────────────────────
   {
     slug: "the-dkm-scholarship",
     title: "The Deo Kumar Maheshwari Scholarship for Social Work",
     pillar: "education",
-    date: "Commissioned 10 February 2020",
+    date: "Commissioned 10 February 2020 — ongoing",
     description:
-      "A scholarship in memory of Late Deo Kumar Maheshwari, founding trustee. It supports deserving Indian students pursuing undergraduate or postgraduate studies in Social Work, with the aim of awarding ten scholarships per cohort.",
+      "A scholarship in memory of Late Deo Kumar Maheshwari, founding trustee. Launched to support deserving Indian students in Social Work, it has since grown to fund students in India, Uganda and the Philippines — including eight students at St Xavier's University, Kolkata since 2021.",
     body: [
       "Maheshwari Foundation is proud to announce The Deo Kumar Maheshwari Scholarship for Studies in Social Work.",
       "The scholarship is being commissioned in memory of Late Deo Kumar Maheshwari, Founding trustee of Maheshwari Foundation in India. The Foundation is seeking to award scholarships to ten deserving candidates.",
@@ -144,6 +166,11 @@ export const projects: Project[] = [
       "Scholarship Eligibility",
       "The scholarship is intended to support deserving candidates who wish to pursue studies in Social Work at undergraduate or postgraduate levels. This scholarship is open to students all over India and will be selected through an application process. The scholarship is meant to meet the tuition fees of those students who will be accepted by the trustees after due consideration to their application. Any interested candidate may write to info@maheshwarifoundation.com with their background and plans along with an explanation of why they believe their case to be deserving. A copy of the CV and a college admission letter is mandatory. Already admitted students also qualify to apply.",
       "10th February 2020",
+      "Update — October 2026",
+      "The DKM Scholarship has been running continuously since 2020 and now supports students across three countries.",
+      "India — The Foundation has supported eight students at St Xavier's University, Kolkata since 2021, with INR 16,80,000 committed to date. A further undergraduate scholarship ran from 2021 to 2024 (INR 2,46,000).",
+      "Uganda — Since July 2023, the Foundation has paid the annual school tuition fees of a young student in Bwindi, supporting her from kindergarten onwards.",
+      "Philippines — From March 2021, the Foundation supported a student in Nueva Ecija from Senior High School through university. He graduated with a Bachelor of Science in Accounting Information Systems on 7 May 2026.",
     ],
     image:
       "https://static.wixstatic.com/media/083907_d52c0c57a64d4f2a8403fc0e05b57a4a~mv2.png",
@@ -231,11 +258,16 @@ export const projects: Project[] = [
     slug: "st-xaviers-kolkata",
     title: "St. Xavier's University, Kolkata",
     pillar: "education",
+    date: "Campus fundraising 2013; student scholarships since 2021",
+    location: "Kolkata, India",
+    beneficiaries: "8 students supported since 2021",
     description:
-      "Founded in 1860 by the Society of Jesus, St Xavier's is a Christian Minority Higher Educational Institution. Trustees of the foundation helped raise nearly US$4 million in 2013 toward the modern Business School development at Rajarhat, alongside direct financial contributions.",
+      "Founded in 1860 by the Society of Jesus, St Xavier's is a Christian Minority Higher Educational Institution. Trustees of the foundation helped raise nearly US$4 million in 2013 toward the modern Business School development at Rajarhat, and since 2021 the foundation has funded eight students' studies — INR 16,80,000 to date.",
     body: [
       "St Xavier's College, Kolkata was founded in 1860 by the Society of Jesus and is a Christian Minority Higher Educational Institution.",
       "Vision SXC 2020 involved developing a modern Business School at Rajarhat. The Trustees of Maheshwari Foundation helped raise nearly US$4 million in 2013 for the expansion project, alongside direct financial contributions from the Foundation.",
+      "Update — October 2026",
+      "Since 2021, the Foundation has supported eight students at St Xavier's University, Kolkata through the Deo Kumar Maheshwari Scholarship, with INR 16,80,000 committed to date.",
     ],
     image:
       "https://static.wixstatic.com/media/083907_79135a9556c54cbdb6b23c5de1648cfd~mv2.jpg",
@@ -251,6 +283,8 @@ export const projects: Project[] = [
     body: [
       "Future Hope is a charitable organisation which provides opportunity through its homes, school and medical programme for some of the most vulnerable children from the streets and slums of Kolkata, India.",
       "The work focuses on three primary initiatives: Street to School, Life Skills, and Transformation.",
+      "Update — October 2026",
+      "The Foundation continued its support for Future Hope in 2024, contributing INR 43,550.",
     ],
     image:
       "https://static.wixstatic.com/media/083907_e6b2bba16cae4e519788d141288edef0~mv2.png",
@@ -278,19 +312,74 @@ export const projects: Project[] = [
     order: 27,
   },
 
+  {
+    slug: "uganda-education-scholar",
+    title: "Uganda Education Scholar",
+    pillar: "education",
+    date: "Since July 2023 — ongoing",
+    location: "Bwindi, Uganda",
+    beneficiaries: "1 student, supported from kindergarten",
+    description:
+      "Since July 2023, the foundation has paid the annual school tuition fees of a young girl in Bwindi, Uganda — supporting her education from kindergarten onwards, as part of the Deo Kumar Maheshwari Scholarship.",
+    body: [
+      "Bwindi, in south-western Uganda, is a remote community where the cost of school fees can decide whether a child stays in education.",
+      "Since July 2023, Maheshwari Foundation has supported a young student in Bwindi, paying her school tuition fees each year. We began supporting her when she was in kindergarten, with the aim of seeing her through her schooling.",
+      "This support forms part of the Deo Kumar Maheshwari Scholarship, which now funds students in India, Uganda and the Philippines.",
+    ],
+    image: "/banners/hero-uganda.jpg",
+    order: 28,
+  },
+  {
+    slug: "philippines-education-scholar",
+    title: "Philippines Education Scholar",
+    pillar: "education",
+    date: "March 2021 – May 2026 (graduated)",
+    location: "Nueva Ecija, Philippines",
+    beneficiaries: "1 student — graduated BSc Accounting Information Systems, May 2026",
+    description:
+      "From March 2021, the foundation supported a student in Nueva Ecija from Senior High School through university — paying half his tuition, plus food and transport allowances and school fees. He graduated with a Bachelor of Science in Accounting Information Systems on 7 May 2026.",
+    body: [
+      "In March 2021, Maheshwari Foundation began supporting a student in Nueva Ecija, Philippines, who was then in Senior High School. He had a good scholastic standing, and the Foundation paid half of his tuition fees, along with food and transportation allowances and miscellaneous school fees.",
+      "We continued to support him through university. On 7 May 2026, he graduated with a Bachelor of Science in Accounting Information Systems.",
+      "We are grateful to our contact in the Philippines, a teacher who has helped manage this support on the ground throughout. This scholarship forms part of the Deo Kumar Maheshwari Scholarship.",
+    ],
+    image: "/banners/hero-philippines.jpg",
+    order: 29,
+  },
+  {
+    slug: "udayan-setu-2026",
+    title: "Udayan — Setu 2026",
+    pillar: "education",
+    date: "2026 — ongoing",
+    location: "Kolkata, West Bengal, India",
+    partners: ["SVP India — Kolkata Chapter", "Udayan"],
+    description:
+      "At Setu 2026, SVP India Kolkata Chapter's evening of giving, the foundation committed INR 32 lakh to Udayan — a Kolkata-based residential home and school for children from families affected by leprosy. Our support has begun and is ongoing.",
+    body: [
+      "Setu is the Kolkata Chapter of SVP India's evening of giving, bringing together philanthropists and partner NGOs to fund grassroots organisations.",
+      "At Setu 2026, Maheshwari Foundation committed INR 32 lakh to Udayan. Our support has begun and is ongoing.",
+      "Udayan is a Kolkata-based residential home and school for children from families affected by leprosy in West Bengal and Jharkhand, providing a safe, nurturing environment with education, care and opportunities for personal growth.",
+    ],
+    image: "/banners/banner-2.jpg",
+    order: 30,
+  },
+
   // ── Community Relief ────────────────────────────────────────────────────
   {
     slug: "copy-of-cricket-kit-and-practice-net",
     title: "Ramadan Donation Drive",
     pillar: "relief",
-    date: "Annual — four consecutive years since 2023",
+    date: "Every Ramadan since 2023 — four consecutive years",
     location: "Dubai labour camps",
     partners: ["Synergy Capital", "Little People Big Hearts (Dubai)"],
+    beneficiaries: "6,000+ people fed across labour camps",
     description:
-      "Each Ramadan, the foundation distributes rice, cooking oil, lentils, detergent, bath soaps, toothpaste and shaving blades in eco-friendly bags to men in Dubai labour camps. The drive started in 2021, when the brutal impact of COVID had emptied many camps — one site that once housed 300 men sheltered only 64.",
+      "Every Ramadan since 2023, the foundation has distributed essentials to labour camps and mosques in Dubai — rice, cooking oil, lentils, detergent, bath soaps, toothpaste and shaving blades, packed in eco-friendly bags. Our food distribution has now reached more than 6,000 people. An earlier drive during COVID found one camp that once housed 300 men sheltering only 64.",
     body: [
       "Maheshwari Foundation and Synergy Capital collaborated with Little People Big Hearts to donate the following items to some labour camps around Dubai. Packed in eco-friendly bags: rice, cooking oil, lentils, detergent, bath soaps, toothpaste and shaving blades. We are grateful to Little People Big Hearts for joining hands and helping us facilitate this during Ramadan.",
       "A camp that used to house over 300 men now houses only 64 men. This shows the brutal impact that the labour camps have seen because of Covid. Many have lost their jobs and those who remain continue to have hope that 'normal' life will resume. The amazing team behind Maheshwari Foundation and Synergy Capital hand-packaged individual bags of essential items for these incredible men and distributed them as conversations flowed about life, family back home, and the hope they still hold.",
+      "Update — October 2026",
+      "The Ramadan distribution has now run for four consecutive years since 2023, reaching labour camps and mosques across Dubai. Together with our wider food distribution, more than 6,000 people have been fed across labour camps.",
     ],
     image:
       "https://static.wixstatic.com/media/083907_92a11e84b4dc45aa8b273043e0248a82~mv2.png",
@@ -463,6 +552,25 @@ export const projects: Project[] = [
       "https://static.wixstatic.com/media/083907_c8ded826d1a14128a6e866c68994aa96~mv2.jpg",
     order: 41,
   },
+  {
+    slug: "lions-club-partnership",
+    title: "Lions Club Partnership — 2024 to 2026",
+    pillar: "partnerships",
+    date: "2024 — ongoing",
+    location: "India",
+    partners: ["Lions Club"],
+    description:
+      "Beyond the Howrah Blood Bank, the foundation funds a range of Lions Club activities in India — including food for visually impaired children and cancer treatment for a child in 2025, refrigeration equipment, and a food distribution in January 2026.",
+    body: [
+      "Our relationship with the Lions Club runs deep: our founding trustee, Mr Deo Kumar Maheshwari, was an active member of the Lions Club of Howrah for almost 50 years.",
+      "2024 — The Foundation supported Lions Club activities with INR 1,55,000.",
+      "2025 — Our support for Lions Club activities grew to INR 7,10,000, and we funded refrigeration equipment for the Lions (INR 71,480). Through the Lions, we also provided food for visually impaired children and funded cancer treatment for a child.",
+      "2026 — On 7 January 2026, we funded a food distribution through the Lions (INR 5,100).",
+    ],
+    image:
+      "https://static.wixstatic.com/media/083907_2bf921ff06da41f88fb5ba6fb4770a71~mv2.jpg",
+    order: 39,
+  },
 ];
 
 export const projectsByPillar: Record<Pillar, Project[]> = {
@@ -505,6 +613,11 @@ const projectCountries: Record<string, string[]> = {
   "father-redemptorist-foundation": ["Thailand"],
   "nausarmatatemple": ["India"],
   "vatsalya-bhavan": ["India"],
+  "filtered-water-coolers-2025": ["India"],
+  "uganda-education-scholar": ["Uganda"],
+  "philippines-education-scholar": ["Philippines"],
+  "udayan-setu-2026": ["India"],
+  "lions-club-partnership": ["India"],
   // grass-roots-business-foundation spans Africa/Asia/Latin America — no single
   // GeoReach country, so it is intentionally left untagged.
 };
