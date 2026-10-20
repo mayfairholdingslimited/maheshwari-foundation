@@ -6,11 +6,14 @@ export interface Partner {
   description: string;
   website: string;
   logo: string;
+  /** Country page this charity appears on (matches a name in site.ts locations). */
+  country?: string;
 }
 
 export const partners: Partner[] = [
   {
     name: "Maggie's Centre",
+    country: "United Kingdom",
     description:
       "Provides free practical, emotional and social support to people with cancer and their families.",
     website: "https://www.maggiescentres.org",
@@ -18,6 +21,7 @@ export const partners: Partner[] = [
   },
   {
     name: "Sangam Centre",
+    country: "United Kingdom",
     description:
       "Not-for-profit charity founded by Asian women, offering information, advice and support to communities in London.",
     website: "https://www.sangamcentre.org.uk",
@@ -39,6 +43,7 @@ export const partners: Partner[] = [
   },
   {
     name: "Pratham UK",
+    country: "United Kingdom",
     description:
       "An organisation that has helped over 35 million disadvantaged children learn to read.",
     website: "https://www.pratham.org.uk",
@@ -53,6 +58,7 @@ export const partners: Partner[] = [
   },
   {
     name: "Stroke Association",
+    country: "United Kingdom",
     description:
       "The UK's stroke charity — supporting survivors, families and carers, and funding stroke prevention and treatment research.",
     website: "https://www.stroke.org.uk",
