@@ -13,7 +13,7 @@ export const foundation = {
     "Equipping people with the tools to discover the inner strength and confidence to find their place in society.",
   principle:
     "Every individual can make a contribution, and it is incumbent upon each one of us who enjoys the licence to live in this world to make our own little contribution.",
-  longDescription: `Maheshwari Foundation was established in India in March 2010 and registered in the UK in 2011. We work to address illiteracy, hunger and deprivation through initiatives that empower disadvantaged populations across India, the United Arab Emirates, the Philippines, Uganda, Thailand and beyond.`,
+  longDescription: `Maheshwari Foundation was established in India in March 2010 and registered in the UK in 2011. We work to address illiteracy, hunger and deprivation through initiatives that empower disadvantaged populations across India, the United Arab Emirates, the Philippines, Uganda, Thailand, the United Kingdom and beyond.`,
 } as const;
 
 export const gratitude = {

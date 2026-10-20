@@ -41,8 +41,8 @@ export function sanitizeCounter(input: Record<string, unknown>): BloodCounter {
     asOn: String(input.asOn ?? DEFAULT_COUNTER.asOn).slice(0, 40) ||
       DEFAULT_COUNTER.asOn,
     peopleDonated: num(input.peopleDonated),
-    unitsInStock: num(input.unitsInStock),
-    unitsDonated: num(input.unitsDonated),
-    campsInMaking: num(input.campsInMaking),
+    beneficiaries: num(input.beneficiaries),
+    collectionVehicles: num(input.collectionVehicles),
+    thalassemiaCentres: num(input.thalassemiaCentres),
   };
 }
