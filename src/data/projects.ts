@@ -19,6 +19,8 @@ export interface Project {
   description: string;
   body?: string[];
   image: string;
+  /** Optional CSS object-position for the photo crop, e.g. "center 30%". */
+  imagePosition?: string;
   /** Order on the listing pages — lower number = shown first. */
   order: number;
 }
@@ -27,15 +29,15 @@ export const projects: Project[] = [
   // ── Health & Wellbeing ──────────────────────────────────────────────────
   {
     slug: "howrah-blood-bank-2023",
-    title: "Howrah Blood Bank — 2023 Update",
+    title: "Howrah Blood Bank",
     pillar: "health",
-    date: "Inaugurated June 2023; Thalassemia Unit launched 27 May 2024; blood donation drives ongoing since 2023",
+    date: "Inaugurated June 2023; Thalassemia Unit launched 27 May 2024; Blood Collection Vehicle inaugurated June 2024",
     location: "Howrah, West Bengal, India",
     partners: ["Lions Club of Howrah"],
     description:
-      "The Howrah Blood Bank was formally gifted to the Lions Club of Howrah in June 2023, together with a Blood Collection and Transportation Vehicle. A Thalassemia Unit launched on World Thalassemia Day in May 2024 and continues to provide regular blood transfusions, and blood donation camps and drives have run continuously since 2023. As Sudhir Maheshwari has shared, this project fulfilled his late father's philanthropic vision.",
+      "The Howrah Blood Bank was formally gifted to the Lions Club of Howrah in June 2023. A Thalassemia Unit launched on World Thalassemia Day in May 2024 and continues to provide regular blood transfusions, and a Blood Collection and Transportation Vehicle inaugurated in June 2024 has since collected hundreds of units of blood across Kolkata and West Bengal. As Sudhir Maheshwari has shared, this project fulfilled his late father's philanthropic vision.",
     body: [
-      "Today, September 25th, 2023 would have been my father, Mr. D.K. Maheshwari's, 82nd birthday. On this occasion, my family and I spent the past weekend in Kolkata for a very important occasion. Before my father passed away, all too suddenly at my Dubai home in 2020, he had envisioned setting up a Blood Bank in Howrah. He had requested me and my family to consider sponsoring the entire project. This blood centre was built in 2019 but couldn't be commissioned as Covid caused many unplanned delays. Finally, the Centre was inaugurated in June this year. Maheshwari Foundation formally gifted this to the Lions Club of Howrah in Jaduberia yesterday. We also gifted and inaugurated a Thalassemia Unit, which should be able to serve society at large, especially those young children who need this life support regularly. Last but not least, we announced that we will gift a state-of-the-art, customised Blood Collection and Transportation Vehicle (BCTV). The BCTV will enhance the outreach programme to collect blood from donors in far and wide places. The BCTV is expected to be operational in 2-3 months.",
+      "Today, September 25th, 2023 would have been my father, Mr. D.K. Maheshwari's, 82nd birthday. On this occasion, my family and I spent the past weekend in Kolkata for a very important occasion. Before my father passed away, all too suddenly at my Dubai home in 2020, he had envisioned setting up a Blood Bank in Howrah. He had requested me and my family to consider sponsoring the entire project. This blood centre was built in 2019 but couldn't be commissioned as Covid caused many unplanned delays. Finally, the Centre was inaugurated in June this year. Maheshwari Foundation formally gifted this to the Lions Club of Howrah in Jadurberia yesterday. We also gifted and inaugurated a Thalassemia Unit, which should be able to serve society at large, especially those young children who need this life support regularly. Last but not least, we announced that we will gift a state-of-the-art, customised Blood Collection and Transportation Vehicle (BCTV). The BCTV enhances the outreach programme to collect blood from donors in far and wide places. The BCTV was inaugurated in June 2024 and has since collected hundreds of units of blood from various locations across Kolkata and West Bengal.",
       "My father was a phenomenal philanthropist. He moved from Rajasthan to Kolkata after completing his Masters. He slowly and steadily built his professional career eventually reaching the position of CEO in a couple of jute and industrial chemical companies. Alongside his endeavour to make a decent living so that he could provide a good education to his three children, me being the eldest, he always gave the rest of his time to social causes, one of which was the Lions Club of Howrah. This Club has a history of 62 years and my father was an active member for almost 50 of those years. He was a disciplined and organised person — motivating and leading from the front was his forte. Of those fifty-odd years, for twenty years he was the Chairman of the two charitable hospitals that this club runs in Howrah.",
       "My family and friends feel blessed and grateful to have finished this important work that my father had begun. The challenges remain to make it a self-sustaining venture run professionally as an institution. We are enthused by the enthusiasm of so many members of the Club to achieve this stage soonest. We memorialised the entire Blood Bank to my father but above all, we dedicated this to every member of the Lions Club of Howrah, whose dedication and selfless work has motivated and inspired me all through my childhood till date.",
       "In an address to the guests by my son, he recounted a good statement from the Noble Laureate, Shri Rabindranath Tagore. \"Life is given to us; we earn it by giving it.\" The void left by my father continues to be felt by so many and he is still so fondly remembered by so many, is a testament to the fact that a life well loved is a life well lived. He continues to be a benchmark in his broad network of family, friends and professionals.",
@@ -62,13 +64,12 @@ export const projects: Project[] = [
       "Addressing the long-standing need for a well-functioning private blood bank in Howrah — a densely urbanised city of five million on the western bank of the Hooghly River, across from Kolkata. Total project cost: under INR 1 crore (~US$150,000). Delayed by Covid, the Blood Bank was inaugurated in June 2023.",
     body: [
       "In October 2018, Howrah Lions Club in West Bengal, India and Maheshwari Foundation identified a need to commission a Blood Bank in Howrah. Howrah is located across from Kolkata, on the western bank of the Hooghly River. Howrah is one of the most densely urbanized cities (population of 5 million people) of India and lacks a well-functioning private blood bank.",
-      "The Blood Bank and Thalassemia Clinic is being commissioned at the Jadurberia Hospital of Howrah Lions' Club and is expected to be completed by the middle of 2019 at a cost of under ₹1 Crore (~$150,000).",
+      "The Blood Bank and Thalassemia Clinic at the Jadurberia Hospital of Howrah Lions' Club was commissioned and inaugurated in June 2023. The Maheshwari Foundation pledged US$2 million towards this initiative, with the actual contribution exceeding that commitment.",
       "The Foundation is grateful to the Howrah Lions' Club for giving such an opportunity to commission a high-impact project in and around Howrah.",
       "Update — October 2026",
       "Construction was completed in 2019, but Covid caused many unplanned delays to commissioning. The Blood Bank was inaugurated in June 2023 and formally gifted to the Lions Club of Howrah, followed by a Thalassemia Unit in May 2024.",
     ],
-    image:
-      "https://static.wixstatic.com/media/083907_2bf921ff06da41f88fb5ba6fb4770a71~mv2.jpg",
+    image: "/projects/howrah-blood-bank-vehicle.jpg",
     order: 11,
   },
   {
@@ -101,7 +102,7 @@ export const projects: Project[] = [
   {
     slug: "manzil-centre-of-disabilities",
     title: "Manzil Centre of Disabilities",
-    pillar: "health",
+    pillar: "education",
     location: "Sharjah, UAE",
     description:
       "Manzil is a non-profit centre in Sharjah promoting inclusion through a professional learning environment for people with disabilities. Their work nurtures students' self-help, social, educational and vocational skills — the foundation supports their mission of shaping an inclusive society.",
@@ -110,7 +111,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_abbccfa640694145ac8395741b61c912~mv2.jpg",
-    order: 13,
+    order: 26,
   },
   {
     slug: "bhuj-earthquake",
@@ -127,13 +128,13 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_1291179d277a465b8177208d11e0671a~mv2.jpeg",
-    order: 14,
+    order: 13,
   },
 
   {
     slug: "filtered-water-coolers-2025",
-    title: "Filtered Drinking Water — 2025",
-    pillar: "health",
+    title: "Filtered Drinking Water",
+    pillar: "relief",
     date: "2025",
     beneficiaries: "3 filtered water coolers installed",
     description:
@@ -145,7 +146,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_9923ecb9fd364dbc9c17393bddac3a1b~mv2.jpg",
-    order: 15,
+    order: 33,
   },
 
   // ── Education & Opportunity ─────────────────────────────────────────────
@@ -155,7 +156,7 @@ export const projects: Project[] = [
     pillar: "education",
     date: "Commissioned 10 February 2020 — ongoing",
     description:
-      "A scholarship in memory of Late Deo Kumar Maheshwari, founding trustee. Launched to support deserving Indian students in Social Work, it has since grown to fund students in India, Uganda and the Philippines — including eight students at St Xavier's University, Kolkata since 2021.",
+      "A scholarship in memory of Late Deo Kumar Maheshwari, founding trustee. Launched to support deserving Indian students in Social Work, it has since grown to fund students in India, Uganda and the Philippines — including fifteen Social Work students at St Xavier's University, Kolkata and Nirmala Niketan, Mumbai since 2020.",
     body: [
       "Maheshwari Foundation is proud to announce The Deo Kumar Maheshwari Scholarship for Studies in Social Work.",
       "The scholarship is being commissioned in memory of Late Deo Kumar Maheshwari, Founding trustee of Maheshwari Foundation in India. The Foundation is seeking to award scholarships to ten deserving candidates.",
@@ -168,12 +169,12 @@ export const projects: Project[] = [
       "10th February 2020",
       "Update — October 2026",
       "The DKM Scholarship has been running continuously since 2020 and now supports students across three countries.",
-      "India — The Foundation has supported eight students at St Xavier's University, Kolkata since 2021, with INR 16,80,000 committed to date. A further undergraduate scholarship ran from 2021 to 2024 (INR 2,46,000).",
-      "Uganda — Since July 2023, the Foundation has paid the annual school tuition fees of a young student in Bwindi, supporting her from kindergarten onwards.",
-      "Philippines — From March 2021, the Foundation supported a student in Nueva Ecija from Senior High School through university. He graduated with a Bachelor of Science in Accounting Information Systems on 7 May 2026.",
+      "India — The Foundation has supported fifteen students between St Xavier's University in Kolkata and Nirmala Niketan in Mumbai since 2020. Each student has graduated with an MSc in Social Work.",
+      "Uganda — Since July 2023, the Foundation has supported a young female student in Bwindi, Uganda, with her annual tuition fees since her kindergarten years.",
+      "The Philippines — From March 2021, the Foundation has supported a student in Nueva Ecija from Senior Year in High School to his graduation. He was supported with tuition fees, food and transportation allowances. In May 2026, he graduated with a Bachelor of Science in Accounting Information Systems.",
     ],
-    image:
-      "https://static.wixstatic.com/media/083907_d52c0c57a64d4f2a8403fc0e05b57a4a~mv2.png",
+    image: "/projects/dkm-scholarship.jpg",
+    imagePosition: "center 30%",
     order: 20,
   },
   {
@@ -192,9 +193,8 @@ export const projects: Project[] = [
       "Our children are provided with nutritious meals and snacks daily and are taught the merits of hygiene and cleanliness.",
       "From these two schools in Howrah, approximately 60 children benefit annually from this facility. Since 2008, approximately 500 children have accessed this facility.",
     ],
-    image:
-      "https://static.wixstatic.com/media/083907_748de6994e704030a179dac20510abef~mv2.jpg",
-    order: 21,
+    image: "/banners/banner-2.jpg",
+    order: 23,
   },
   {
     slug: "kailash-satyarthi-foundation",
@@ -213,7 +213,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_8e7ef7a1bf934fb79514ea3165414c70~mv2.jpg",
-    order: 22,
+    order: 24,
   },
   {
     slug: "cricket-kit-and-practice-net-for-bal-ash-1",
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_4016c3d4095e486a85775db8720160df~mv2.jpg",
-    order: 23,
+    order: 25,
   },
   {
     slug: "educational-sponsorship",
@@ -249,29 +249,30 @@ export const projects: Project[] = [
       "Vedanta Academy, India — Vedanta Academy near Mumbai and Pune is a world resource for study, research and dissemination of Vedanta. The Foundation is participating in the educational sponsorship at this esteemed organization.",
       "Manzil, Sharjah — Manzil Centre in Sharjah, UAE is a centre for students with disabilities. The Foundation is participating in the educational sponsorship at this exemplary organization.",
       "Society of Indian Children's Welfare, Kolkata, India — The Foundation's trustees have regularly participated in the educational sponsorships at this noble organisation.",
+      "The Foundation continues its education sponsorships through the DKM Scholarships for Social Work. Read more about the Scholarship [here](/our-work/the-dkm-scholarship).",
     ],
     image:
       "https://static.wixstatic.com/media/083907_88e9ec2b2c5d4135971d1a955cb0c69b~mv2.jpg",
-    order: 24,
+    order: 27,
   },
   {
     slug: "st-xaviers-kolkata",
     title: "St. Xavier's University, Kolkata",
     pillar: "education",
-    date: "Campus fundraising 2013; student scholarships since 2021",
+    date: "Campus fundraising 2013; Social Work scholarships since 2020",
     location: "Kolkata, India",
-    beneficiaries: "8 students supported since 2021",
+    beneficiaries: "15 Social Work students (with Nirmala Niketan, Mumbai) since 2020",
     description:
-      "Founded in 1860 by the Society of Jesus, St Xavier's is a Christian Minority Higher Educational Institution. Trustees of the foundation helped raise nearly US$4 million in 2013 toward the modern Business School development at Rajarhat, and since 2021 the foundation has funded eight students' studies — INR 16,80,000 to date.",
+      "Founded in 1860 by the Society of Jesus, St Xavier's is a Christian Minority Higher Educational Institution. Trustees of the foundation helped raise nearly US$4 million in 2013 toward the modern Business School development at Rajarhat, and since 2020 the foundation has supported fifteen students between St Xavier's and Nirmala Niketan, Mumbai, each graduating with an MSc in Social Work.",
     body: [
       "St Xavier's College, Kolkata was founded in 1860 by the Society of Jesus and is a Christian Minority Higher Educational Institution.",
       "Vision SXC 2020 involved developing a modern Business School at Rajarhat. The Trustees of Maheshwari Foundation helped raise nearly US$4 million in 2013 for the expansion project, alongside direct financial contributions from the Foundation.",
       "Update — October 2026",
-      "Since 2021, the Foundation has supported eight students at St Xavier's University, Kolkata through the Deo Kumar Maheshwari Scholarship, with INR 16,80,000 committed to date.",
+      "Since 2020, the Foundation has supported fifteen students between St Xavier's University in Kolkata and Nirmala Niketan in Mumbai through the Deo Kumar Maheshwari Scholarship. Each student has graduated with an MSc in Social Work.",
     ],
     image:
       "https://static.wixstatic.com/media/083907_79135a9556c54cbdb6b23c5de1648cfd~mv2.jpg",
-    order: 25,
+    order: 28,
   },
   {
     slug: "future-hope",
@@ -288,7 +289,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_e6b2bba16cae4e519788d141288edef0~mv2.png",
-    order: 26,
+    order: 29,
   },
   {
     slug: "stepping-stone-day-care-centre",
@@ -309,7 +310,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_8313779567944698bb778494f87fb54c~mv2_d_3648_2736_s_4_2.jpg",
-    order: 27,
+    order: 30,
   },
 
   {
@@ -327,7 +328,7 @@ export const projects: Project[] = [
       "This support forms part of the Deo Kumar Maheshwari Scholarship, which now funds students in India, Uganda and the Philippines.",
     ],
     image: "/banners/hero-uganda.jpg",
-    order: 28,
+    order: 21,
   },
   {
     slug: "philippines-education-scholar",
@@ -344,27 +345,43 @@ export const projects: Project[] = [
       "We are grateful to our contact in the Philippines, a teacher who has helped manage this support on the ground throughout. This scholarship forms part of the Deo Kumar Maheshwari Scholarship.",
     ],
     image: "/banners/hero-philippines.jpg",
-    order: 29,
+    order: 22,
   },
   {
     slug: "udayan-setu-2026",
-    title: "Udayan — Setu 2026",
-    pillar: "education",
+    title: "Udayan — A Home & School for Children Affected by Leprosy",
+    pillar: "relief",
     date: "2026 — ongoing",
     location: "Kolkata, West Bengal, India",
     partners: ["SVP India — Kolkata Chapter", "Udayan"],
     description:
-      "At Setu 2026, SVP India Kolkata Chapter's evening of giving, the foundation committed INR 32 lakh to Udayan — a Kolkata-based residential home and school for children from families affected by leprosy. Our support has begun and is ongoing.",
+      "At Setu 2026, the foundation committed INR 32 lakh to Udayan — a Kolkata-based residential home and school for children from families affected by leprosy. Our support is funding an RO water-filtration plant for the entire campus, a 50 kW backup generator and waste management.",
     body: [
-      "Setu is the Kolkata Chapter of SVP India's evening of giving, bringing together philanthropists and partner NGOs to fund grassroots organisations.",
-      "At Setu 2026, Maheshwari Foundation committed INR 32 lakh to Udayan. Our support has begun and is ongoing.",
+      "Setu is Kolkata's Chapter of SVP India's evening of giving, bringing together philanthropists and partner NGOs to fund grassroots organisations.",
+      "At Setu 2026, Maheshwari Foundation committed INR 32 lakh to Udayan. Our support is going towards building an RO plant — a 1,000-litre-per-hour water filter that will cover the entire campus. Our support will also fund the installation of a 50 kW backup generator and waste management.",
       "Udayan is a Kolkata-based residential home and school for children from families affected by leprosy in West Bengal and Jharkhand, providing a safe, nurturing environment with education, care and opportunities for personal growth.",
     ],
     image: "/banners/banner-2.jpg",
-    order: 30,
+    order: 31,
   },
 
   // ── Community Relief ────────────────────────────────────────────────────
+  {
+    slug: "vaani-deaf-childrens-foundation",
+    title: "Vaani Deaf Children's Foundation",
+    pillar: "relief",
+    date: "2026 — committed",
+    location: "India",
+    partners: ["SVP India — Kolkata Chapter", "Vaani Deaf Children's Foundation"],
+    description:
+      "At Setu 2026, SVP India Kolkata Chapter's evening of giving, the foundation committed INR 7.5 lakh to Vaani Deaf Children's Foundation, which brings language and communication skills into the lives of deaf children and their families.",
+    body: [
+      "At Setu 2026, the Kolkata Chapter of SVP India's evening of giving, Maheshwari Foundation committed INR 7.5 lakh to Vaani Deaf Children's Foundation.",
+      "Vaani is a national non-profit in India whose mission is to bring language and communication skills into the lives of deaf children and their families, so that every deaf child can lead a complete life with respect and dignity.",
+    ],
+    image: "/banners/banner-2.jpg",
+    order: 32,
+  },
   {
     slug: "copy-of-cricket-kit-and-practice-net",
     title: "Ramadan Donation Drive",
@@ -383,7 +400,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_92a11e84b4dc45aa8b273043e0248a82~mv2.png",
-    order: 30,
+    order: 35,
   },
   {
     slug: "copy-of-maheshwari-foundation-oxyge",
@@ -402,7 +419,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_9923ecb9fd364dbc9c17393bddac3a1b~mv2.jpg",
-    order: 31,
+    order: 37,
   },
   {
     slug: "covid-19-donations",
@@ -433,7 +450,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_9a9eda1a078144d38e9965db8e205f66~mv2.jpeg",
-    order: 32,
+    order: 36,
   },
   {
     slug: "taal-volcano-eruption",
@@ -452,7 +469,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_d4e4f3acf71c44a2a7f9874501a753c8~mv2.jpeg",
-    order: 33,
+    order: 38,
   },
   {
     slug: "crpf-soldiers",
@@ -467,7 +484,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_5735c497ce97439cb276854d6a75ddbd~mv2.png",
-    order: 34,
+    order: 39,
   },
   {
     slug: "pondicherry-tsunami",
@@ -484,21 +501,22 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_3ec45da5710d488982076f459d6793e4~mv2.jpg",
-    order: 35,
+    order: 41,
   },
   {
     slug: "nausarmatatemple",
     title: "Lift Construction at Nausar Mata Temple",
+    date: "2023",
     pillar: "relief",
     location: "Pushkar Valley, Ajmer, Rajasthan",
     description:
-      "A lift installed at a 1,300-year-old hilltop temple housing nine idols of Maa Durga — to ease the climb for devotees and connect them more readily with their faith and reverence.",
+      "A lift installed in 2023 at a 1,300-year-old hilltop temple housing nine idols of Maa Durga — to ease the climb for devotees and connect them more readily with their faith and reverence.",
     body: [
-      "Nausar Mata Temple is a 1,300-year-old hilltop temple in the Pushkar Valley of Ajmer, Rajasthan, housing nine idols of Maa Durga. The Foundation installed a lift for the ease of devotees to connect with their faith and reverence.",
+      "Nausar Mata Temple is a 1,300-year-old hilltop temple in the Pushkar Valley of Ajmer, Rajasthan, housing nine idols of Maa Durga. In 2023, the Foundation installed a lift to facilitate devotees' connection with their faith and reverence.",
     ],
     image:
       "https://static.wixstatic.com/media/083907_518dd411aedb40c4a738d65801d917a6~mv2.jpg",
-    order: 36,
+    order: 34,
   },
   {
     slug: "vatsalya-bhavan",
@@ -514,7 +532,7 @@ export const projects: Project[] = [
     ],
     image:
       "https://static.wixstatic.com/media/083907_177fbdffb22c4aed983ee7cdb2c08889~mv2.jpg",
-    order: 37,
+    order: 40,
   },
 
   // ── Global Partnerships ─────────────────────────────────────────────────
@@ -554,7 +572,7 @@ export const projects: Project[] = [
   },
   {
     slug: "lions-club-partnership",
-    title: "Lions Club Partnership — 2024 to 2026",
+    title: "Lions Club Partnership",
     pillar: "partnerships",
     date: "2024 — ongoing",
     location: "India",
@@ -617,6 +635,7 @@ const projectCountries: Record<string, string[]> = {
   "uganda-education-scholar": ["Uganda"],
   "philippines-education-scholar": ["Philippines"],
   "udayan-setu-2026": ["India"],
+  "vaani-deaf-childrens-foundation": ["India"],
   "lions-club-partnership": ["India"],
   "grass-roots-business-foundation": ["United Kingdom"],
 };

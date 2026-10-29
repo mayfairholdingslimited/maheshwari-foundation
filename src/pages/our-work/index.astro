@@ -11,7 +11,7 @@ const order: Pillar[] = ["health", "education", "relief", "partnerships"];
   <PageHero
     eyebrow="Programmes since 2001"
     title="The work, project by project."
-    subtitle="Twenty-eight programmes across six countries — some completed, many ongoing. Grouped here by the four areas we focus on."
+    subtitle="Twenty-nine programmes across six countries — many completed, more ongoing. Grouped here by the four areas we focus on."
   />
 
   <nav class="sticky top-0 z-20 border-b border-ink-100 bg-white/80 backdrop-blur">
@@ -49,6 +49,7 @@ const order: Pillar[] = ["health", "education", "relief", "partnerships"];
                 <div class="relative h-48 w-full overflow-hidden">
                   <img
                     src={p.image}
+        style={p.imagePosition ? `object-position: ${p.imagePosition}` : undefined}
                     alt=""
                     loading="lazy"
                     class="h-full w-full object-cover transition duration-[1000ms] ease-out group-hover:scale-105"

@@ -13,6 +13,12 @@ export function getStaticPaths() {
 interface Props {
   project: Project;
 }
+// Body paragraphs may contain [link text](/path) — split them into text and links.
+const linkParts = (para: string) =>
+  para.split(/(\[[^\]]+\]\([^)]+\))/).map((part) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    return m ? { text: m[1], href: m[2] } : { text: part };
+  });
 const { project } = Astro.props;
 const meta = pillarMeta[project.pillar];
 
@@ -27,6 +33,7 @@ const related = projectsByPillar[project.pillar]
     <section class="relative isolate h-[60vh] min-h-[440px] w-full overflow-hidden bg-ink-900 text-white">
       <img
         src={project.image}
+        style={project.imagePosition ? `object-position: ${project.imagePosition}` : undefined}
         alt=""
         class="absolute inset-0 h-full w-full object-cover opacity-70"
         fetchpriority="high"
@@ -81,7 +88,15 @@ const related = projectsByPillar[project.pillar]
                   {para}
                 </h3>
               ) : (
-                <p>{para}</p>
+                <p>
+                  {linkParts(para).map((part) =>
+                    part.href ? (
+                      <a href={part.href} class="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800">{part.text}</a>
+                    ) : (
+                      part.text
+                    )
+                  )}
+                </p>
               )
             )
           ) : (
@@ -109,6 +124,7 @@ const related = projectsByPillar[project.pillar]
                 <div class="relative h-44 w-full overflow-hidden">
                   <img
                     src={r.image}
+        style={r.imagePosition ? `object-position: ${r.imagePosition}` : undefined}
                     alt=""
                     loading="lazy"
                     class="h-full w-full object-cover transition duration-[1000ms] ease-out group-hover:scale-105"
