@@ -23,7 +23,7 @@ export const nav = [
 export const impactStats = [
   { value: "500+", label: "children educated at Maheshwari School For All since 2008" },
   { value: "6,000+", label: "people fed across various labour camps" },
-  { value: "28", label: "programmes delivered since 2001" },
+  { value: "29", label: "programmes delivered since 2001" },
   { value: "6", label: "countries reached" },
 ] as const;
 

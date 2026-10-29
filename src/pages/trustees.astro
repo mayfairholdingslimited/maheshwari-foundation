@@ -48,6 +48,16 @@ import { trustees } from "../data/trustees";
               <p class="mt-3 text-[15px] leading-relaxed text-ink-700">
                 {t.bio}
               </p>
+              {t.bioMore && (
+                <details class="group mt-2">
+                  <summary class="inline-flex cursor-pointer list-none items-center gap-1 text-sm font-semibold text-brand-700 transition hover:text-brand-800 [&::-webkit-details-marker]:hidden">
+                    <span class="group-open:hidden">Read more</span>
+                    <span class="hidden group-open:inline">Read less</span>
+                    <span aria-hidden="true" class="transition group-open:rotate-180">↓</span>
+                  </summary>
+                  <p class="mt-3 text-[15px] leading-relaxed text-ink-700">{t.bioMore}</p>
+                </details>
+              )}
               {t.linkedin && (
                 <a
                   href={t.linkedin}
